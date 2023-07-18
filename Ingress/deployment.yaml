@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: deployment
+  namespace: ingress-nginx 
+  labels:
+
+    app: my-app
+
+spec:
+
+  replicas: 1
+
+  selector:
+
+    matchLabels:
+
+      app: my-app
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: my-app
+
+    spec:
+
+      containers:
+
+      - name: vipul
+
+        image: vipul1410/v2ingress:5.0
+
+        ports:
+
+        - containerPort: 8000
